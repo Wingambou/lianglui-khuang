@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Opening LIANGLUI KHUANG…</title>
+<script>
+(function () {
+  var base = '/lianglui-khuang/';
+  var current = location.pathname;
+  if (!current.startsWith(base)) return;
+  var route = current.slice(base.length);
+  var destination = base + '?spa_redirect=' + encodeURIComponent(route + location.search + location.hash);
+  location.replace(destination);
+})();
+</script>
+</head>
+<body><p>Opening LIANGLUI KHUANG…</p></body>
+</html>
