@@ -8,13 +8,14 @@ self.addEventListener("push", (event) => {
   }
 
   const title = "LIANGLUI KHUANG";
+  const scopeBase = self.registration.scope;
   const options = {
     body: "A new review has been submitted.",
-    icon: "/lianglui-khuang/icons/icon-192.png",
-    badge: "/lianglui-khuang/icons/icon-192.png",
+    icon: new URL("icons/icon-192.png", scopeBase).href,
+    badge: new URL("icons/icon-192.png", scopeBase).href,
     tag: "lianglui-new-review",
     data: {
-      url: "/lianglui-khuang/review-admin"
+      url: new URL("review-admin", scopeBase).href
     }
   };
 
@@ -26,10 +27,7 @@ self.addEventListener("push", (event) => {
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
 
-  const targetUrl = new URL(
-    "/lianglui-khuang/review-admin",
-    self.location.origin
-  ).href;
+  const targetUrl = new URL("review-admin", self.registration.scope).href;
 
   event.waitUntil((async () => {
     const windows = await clients.matchAll({

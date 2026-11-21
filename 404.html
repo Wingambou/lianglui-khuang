@@ -7,7 +7,9 @@
 <title>Opening LIANGLUI KHUANG…</title>
 <script>
 (function () {
-  var base = '/lianglui-khuang/';
+  var base = location.pathname.startsWith('/lianglui-khuang-preview/')
+    ? '/lianglui-khuang-preview/'
+    : '/lianglui-khuang/';
   var current = location.pathname;
   if (!current.startsWith(base)) return;
   var route = current.slice(base.length);
